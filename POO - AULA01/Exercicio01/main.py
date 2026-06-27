@@ -3,18 +3,14 @@ from gato import Gato
 
 def main():
     # Pedi pro meu mano Gemini criar os objetos pra mim, tava sem criatividade, mas não pedi para validar meu código
-    # Criar um array de animais que vai imprimir independente se for cachorro ou gato as informações
-    # Instanciando 5 cachorros com diferentes portes e pesos iniciais
-    cachorros = [
+    # Criar um array de animais que vai imprimir independente se for cachorro ou gato as informações <- Prof Réus comentou
+
+    animais = [
         Cachorro("Bob", 5.0, "P"),
         Cachorro("Rex", 15.0, "M"),
         Cachorro("Thor", 35.0, "G"),
         Cachorro("Mel", 6.0, "P"),
-        Cachorro("Freud", 22.0, "M")
-    ]
-
-    # Instanciando 5 gatos com diferentes pesos iniciais
-    gatos = [
+        Cachorro("Freud", 22.0, "M"),
         Gato("Mingau", 4.0),
         Gato("Garfield", 8.5),
         Gato("Luna", 3.2),
@@ -22,45 +18,25 @@ def main():
         Gato("Simba", 4.8)
     ]
 
-    # Arrumar abaixo, conforme linha 6
-    print("--- TESTANDO OS CACHORROS ---")
-    for cao in cachorros:
-        if Cachorro:
-            print(f"\nAnimal: {cao.nome} | Porte: {cao.porte}")
+    print("--- TESTANDO OS ANIMAIS ---")
+    for anim in animais:
+        if isinstance(anim, Cachorro): # <- mano gemini me mostrou esse isinstance pra verificar se o objeto é tal classe
+            print(f"\nClasse: Cachorro | Nome: {anim.nome} | Porte: {anim.porte}")
         else:
-            print(f"\nAnimal: {cao.nome})
-        print(f"  Peso Inicial: {cao.peso_em_quilos:.3f} kg")
-        
-        # Emitindo som
-        print("  Som: ", end="")
-        cao.emitir_som()
-        
-        # Testando comer (ex: 500g)
-        cao.comer(500)
-        print(f"  Peso após comer 500g: {cao.peso_em_quilos:.3f} kg")
-        
-        # Testando andar (ex: 2000 metros)
-        cao.andar(2000)
-        print(f"  Peso após andar 2000m: {cao.peso_em_quilos:.3f} kg")
+            print(f"\nClasse: Gato | Nome: {anim.nome}")
 
-    print("\n" + "="*40 + "\n")
+        print(f"  Peso Inicial: {anim.peso_em_quilos:.3f} kg")
 
-    print("--- TESTANDO OS GATOS ---")
-    for gatinho in gatos:
-        print(f"\nAnimal: {gatinho.nome}")
-        print(f"  Peso Inicial: {gatinho.peso_em_quilos:.3f} kg")
-        
-        # Emitindo som
         print("  Som: ", end="")
-        gatinho.emitir_som()
-        
-        # Testando comer (ex: 300g)
-        gatinho.comer(300)
-        print(f"  Peso após comer 300g: {gatinho.peso_em_quilos:.3f} kg")
-        
-        # Testando andar (ex: 1500 metros)
-        gatinho.andar(1500)
-        print(f"  Peso após andar 1500m: {gatinho.peso_em_quilos:.3f} kg")
+        anim.emitir_som()
+
+        anim.comer(500)
+        print(f"  Peso após comer 500g: {anim.peso_em_quilos:.3f} kg")
+
+        anim.andar(2000)
+        print(f"  Peso após andar 2000m: {anim.peso_em_quilos:.3f} kg")
+
+        print("\n" + "="*40 + "\n")
 
 if __name__ == "__main__":
     main()
