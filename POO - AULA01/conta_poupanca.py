@@ -6,4 +6,12 @@ class Conta_Poupanca(Conta_Bancaria):
         self.taxa_rendimento = taxa_rendimento
 
     def ver_extrato(self):
-        print
+        print(f"EXTRATO CONTA POUPANÇA")
+        print(f"NÚMERO: {self.numero}")
+        print(f"AGÊNCIA: {self.agencia}")
+        print(f"TITULAR: {self.titular}")
+        print(f"SALDO: {self.saldo}")
+    def depositar(self, valor):
+        return super().depositar(valor)
+    def sacar(self, valor):
+        return super().sacar(valor)

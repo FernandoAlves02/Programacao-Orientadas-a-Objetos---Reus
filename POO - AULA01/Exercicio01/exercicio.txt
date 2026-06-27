@@ -1,0 +1,21 @@
+Crie uma classe abstrata Animal 
+com os seguintes atributos
+- nome
+- peso_em_quilos
+e com os seguintes métodos
+- emitir_som (método abstrado)
+- comer(quantidade_em_gramas) (método concreto)
+- andar(distância_em_metros) (método concreto)
+
+O método comer deverá aumentar o peso do animal de acordo com a quantidade de comida.
+O método andar deverá diminuir 50g no peso do animal para cada 1000 metros percorridos.
+
+Agora crie duas classes concretas: Cachorro e Gato (que são animais)
+Para cada classe, deve-se implementar o método de emitir som 
+No caso da classe Cachorro, existe um atributo adicional chamado "porte" (P, M ou G).
+O método de andar, o peso do cachorro diminui de forma diferente.
+10g para cada 1000 metros para porte P
+60g para cada 1000 metros para porte M
+100g para cada 1000 metros para porte G.
+
+Após isso, em um arquivo main, instancie gatos e cachorros e teste a aplicação.
