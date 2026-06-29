@@ -10,7 +10,11 @@ class Animal(ABC):
         pass
 
     def comer(self, quantidade_em_gramas):
-        self.peso_em_quilos += quantidade_em_gramas / 1000
+        self.peso_em_quilos += quantidade_em_gramas / 1000.0
 
     def andar(self, distancia_em_metros):
-        self.peso_em_quilos -= ((distancia_em_metros / 1000) * 50) / 1000
+        self.peso_em_quilos -= (distancia_em_metros / 1000.0) * 0.05
+
+    @abstractmethod
+    def mostrar_dados(self):
+        pass

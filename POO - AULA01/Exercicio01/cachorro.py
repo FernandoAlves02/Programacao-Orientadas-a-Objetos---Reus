@@ -1,4 +1,7 @@
 from animal import Animal
+from colorama import init, Fore, Style
+
+init(autoreset=True)
 
 class Cachorro(Animal):
     def __init__(self, nome, peso_em_quilos, porte):
@@ -8,22 +11,28 @@ class Cachorro(Animal):
     def emitir_som(self):
         match self.porte:
             case "P":
-                print("Au-au-au!")
+                return f"{Fore.BLUE+Style.BRIGHT}Au-au-au!"
             case "M":
-                print("Au! Au!")
+                return f"{Fore.BLUE+Style.BRIGHT}Au! Au!"
             case "G":
-                print("Ruff! Ruff!")
-
-    def anda(self, peso, distancia):
-        return ((distancia / 1000) * peso) / 1000
+                return f"{Fore.BLUE+Style.BRIGHT}Ruff! Ruff!"
 
     def andar(self, distancia_em_metros):
         match self.porte:
             case "P":
-                self.peso_em_quilos -= self.anda(10, distancia_em_metros)
+                taxa = 0.01
             case "M":
-                self.peso_em_quilos -= ((distancia_em_metros / 1000) * 60) / 1000
+                taxa = 0.06
             case "G":
-                self.peso_em_quilos -= ((distancia_em_metros / 1000) * 100) / 1000
+                taxa = 0.1
+            case _:
+                #fallback caso o usuário informe algo errado
+                taxa = 0.05
 
-    
+        self.peso_em_quilos -= (distancia_em_metros / 1000.0) * taxa
+
+    def mostrar_dados(self):
+        print(f"Nome do cachorro: {self.nome}")
+        print(f"Peso: {self.peso_em_quilos}")
+        print(f"O cachorro faz {self.emitir_som()}")
+        print("-"*50)
